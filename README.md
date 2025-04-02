@@ -9,6 +9,5 @@ Welcome to **Tailwind-Plus**! An open-source project dedicated to democratizing 
 - **TailwindCSS Powered**: Every template is crafted using TailwindCSS utility classes for fast, customizable, and efficient styling.
 - **Open-Source**: Free to use, modify, and contribute to.
 
-## 🎨 Templates
-
-Here are the different UI components available in this repository:
+# check ui
+[Index](https://januscaler.github.io/tailwind-plus/)
