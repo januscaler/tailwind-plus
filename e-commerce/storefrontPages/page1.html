@@ -1,0 +1,185 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+        /* Custom styles for the carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel img.active {
+            opacity: 1;
+        }
+    
+
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Custom styles for the carousel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel img.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="flex items-center justify-between">
+            <div>
+                <a href="#" class="text-white text-lg font-bold">Brand</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-gray-300 hover:text-white">Women</a>
+                <a href="#" class="text-gray-300 hover:text-white">Men</a>
+                <a href="#" class="text-gray-300 hover:text-white">Company</a>
+                <a href="#" class="text-gray-300 hover:text-white">Stores</a>
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-gray-300 hover:text-white">Sign In</a>
+                <a href="#" class="text-gray-300 hover:text-white">Create an account</a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fas fa-shopping-cart"></i></a>
+                <a href="#" class="text-gray-300 hover:text-white"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 p-4">
+            <a href="#" class="text-gray-300 hover:text-white">Women</a>
+            <a href="#" class="text-gray-300 hover:text-white">Men</a>
+            <a href="#" class="text-gray-300 hover:text-white">Company</a>
+            <a href="#" class="text-gray-300 hover:text-white">Stores</a>
+            <a href="#" class="text-gray-300 hover:text-white">Sign In</a>
+            <a href="#" class="text-gray-300 hover:text-white">Create an account</a>
+            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                <i class="fas fa-shopping-cart mr-2"></i> Cart
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white flex items-center">
+                <i class="fas fa-search mr-2"></i> Search
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content with Carousel -->
+    <div class="carousel relative">
+        <img src="https://picsum.photos/id/237/1500/800" alt="Product Image" class="active">
+        <img src="https://picsum.photos/id/238/1500/800" alt="Product Image">
+        <img src="https://picsum.photos/id/239/1500/800" alt="Product Image">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-4 md:p-8">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">New arrivals are here</h1>
+                <p class="mb-4">The new arrivals have, well, arrived. Check out the latest options from our summer small-batch release while they're still in stock.</p>
+                <a href="#" class="bg-white text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-300">Shop New Arrivals</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Carousel functionality
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Change image every 5 seconds
+        setInterval(nextImage, 5000);
+    </script>
+
+</body>
+</html>
+
+
+
+							<script>
+                            	
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            var mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Carousel functionality
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Change image every 5 seconds
+        setInterval(nextImage, 5000);
+    
+
+							</script>
+                        </body>
+                        </html>
+                    
