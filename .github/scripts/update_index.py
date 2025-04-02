@@ -11,7 +11,7 @@ def get_markdown_files():
     markdown_files = []
     for root, dirs, files in os.walk('.'):
         for file in files:
-            if file.endswith('.md') and file != 'README.md':
+            if file.endswith('.html') and file != 'README.md':
                 markdown_files.append(os.path.relpath(os.path.join(root, file), '.'))
     return markdown_files
 
