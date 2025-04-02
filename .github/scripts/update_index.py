@@ -3,7 +3,7 @@ import github
 from github import Github
 
 # Initialize GitHub API with the token
-g = Github(os.environ['GITHUB_TOKEN'])
+g = Github(os.environ['GIT_TOKEN'])
 repo = g.get_repo(os.environ['GITHUB_REPOSITORY'])
 
 # Function to get all markdown files in the repository
