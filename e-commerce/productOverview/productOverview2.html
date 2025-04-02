@@ -1,0 +1,147 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+
+<div class="container mx-auto p-6">
+    <!-- Product Detail Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Product Images -->
+        <div class="flex flex-col space-y-4">
+            <img class="w-full rounded-lg" src="https://placehold.co/600x400" alt="Zip Tote Basket Main View">
+            <div class="flex space-x-4 overflow-x-auto">
+                <img class="w-20 h-20 object-cover rounded-lg" src="https://placehold.co/200x200" alt="Zip Tote Basket Thumbnail 1">
+                <img class="w-20 h-20 object-cover rounded-lg" src="https://placehold.co/200x200" alt="Zip Tote Basket Thumbnail 2">
+                <img class="w-20 h-20 object-cover rounded-lg" src="https://placehold.co/200x200" alt="Zip Tote Basket Thumbnail 3">
+                <img class="w-20 h-20 object-cover rounded-lg" src="https://placehold.co/200x200" alt="Zip Tote Basket Thumbnail 4">
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="flex flex-col">
+            <h1 class="text-2xl font-bold mb-2">Zip Tote Basket</h1>
+            <p class="text-gray-900 text-2xl font-bold mb-4">$140</p>
+            <div class="flex items-center mb-4">
+                <div class="flex">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <i class="fas fa-star text-gray-300"></i>
+                </div>
+                <span class="ml-2 text-gray-500">4.5</span>
+            </div>
+            <p class="text-gray-600 mb-4">The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, shoulder sling, or wear it as a backpack. This versatile and spacious bag is ideal for daily commutes or shopping trips. The zip top keeps your goods protected from the elements.</p>
+            <div class="flex items-center mb-4">
+                <label for="color" class="mr-2">Color:</label>
+                <div class="flex space-x-2">
+                    <button class="w-6 h-6 rounded-full bg-gray-500 border-2 border-transparent"></button>
+                    <button class="w-6 h-6 rounded-full bg-gray-700 border-2 border-gray-900"></button>
+                </div>
+            </div>
+            <button class="bg-blue-600 text-white py-2 rounded mb-4">Add to bag</button>
+            
+            <!-- Expansion Panels -->
+            <div class="border-t border-gray-200 pt-4">
+                <div class="border-b">
+                    <button class="flex items-center justify-between w-full py-2 text-left text-lg font-semibold">
+                        Features
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="hidden text-gray-600">
+                        <ul class="list-disc list-inside">
+                            <li>Convertible straps</li>
+                            <li>Spacious interior</li>
+                            <li>Zip top closure</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-b">
+                    <button class="flex items-center justify-between w-full py-2 text-left text-lg font-semibold">
+                        Care
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="hidden text-gray-600">
+                        <p>Spot clean with a damp cloth.</p>
+                    </div>
+                </div>
+                <div class="border-b">
+                    <button class="flex items-center justify-between w-full py-2 text-left text-lg font-semibold">
+                        Shipping
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="hidden text-gray-600">
+                        <p>Estimated 3-5 business days</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="flex items-center justify-between w-full py-2 text-left text-lg font-semibold">
+                        Returns
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="hidden text-gray-600">
+                        <p>30 days from delivery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.border-b button, .border-t button').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            content.classList.toggle('hidden');
+            const icon = button.querySelector('i');
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
+							<script>
+                            	
+    document.querySelectorAll('.border-b button, .border-t button').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            content.classList.toggle('hidden');
+            const icon = button.querySelector('i');
+            icon.classList.toggle('fa-plus');
+            icon.classList.toggle('fa-minus');
+        });
+    });
+
+
+							</script>
+                        </body>
+                        </html>
+                    
