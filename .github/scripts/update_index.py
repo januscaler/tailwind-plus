@@ -25,17 +25,32 @@ def update_readme(markdown_files):
     
     with open('README.md', 'w') as readme:
         readme.write(readme_content)
+    return readme_content
 
 # Main execution
 if __name__ == "__main__":
     markdown_files = get_markdown_files()
-    update_readme(markdown_files)
+    new_content = update_readme(markdown_files)
     
-    # Commit and push changes
-    commit_message = "Automatically update index in README.md"
-    repo.create_file(
-        "README.md",
-        commit_message,
-        open("README.md", "r").read(),
-        branch="main"
-    )
+    # Check if README.md exists
+    try:
+        readme = repo.get_contents("README.md")
+        # If README.md exists, update it
+        repo.update_file(
+            "README.md",
+            "Automatically update index in README.md",
+            new_content,
+            readme.sha,
+            branch="main"
+        )
+    except github.GithubException as e:
+        # If README.md does not exist, create it
+        if e.status == 404:
+            repo.create_file(
+                "README.md",
+                "Automatically update index in README.md",
+                new_content,
+                branch="main"
+            )
+        else:
+            raise e
