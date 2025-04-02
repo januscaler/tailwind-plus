@@ -3,7 +3,7 @@ name: Update Index
 on:
   push:
     branches:
-      - m  # or whatever branch you want to trigger on
+      - main  # or whatever branch you want to trigger on
 
 jobs:
   update:
