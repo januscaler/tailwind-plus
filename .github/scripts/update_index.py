@@ -29,7 +29,8 @@ Welcome to **Tailwind-Plus**! An open-source project dedicated to democratizing 
 - **Open-Source**: Free to use, modify, and contribute to.
 ## [Demo](https://januscaler.github.io/tailwind-plus/)
 ## 🎨 UI Navigation
-    below you can find all pure html based ui components and templates to use for free
+    below you can find all pure html based ui components and templates to use for free  
+
     """
     for file in sorted(markdown_files):
         # Convert path to link
