@@ -10,12 +10,14 @@ Welcome to **Tailwind-Plus**! An open-source project dedicated to democratizing 
 - **Open-Source**: Free to use, modify, and contribute to.
 ## [Demo](https://januscaler.github.io/tailwind-plus/)
 ## 🎨 UI Navigation
-    below you can find all pure html based ui components and templates to use for free
+    below you can find all pure html based ui components and templates to use for free  
+
     - [e-commerce/productOverview/productOverview1.html](/e-commerce/productOverview/productOverview1.html) 
 - [e-commerce/productOverview/productOverview2.html](/e-commerce/productOverview/productOverview2.html) 
 - [e-commerce/productOverview/productOverview3.html](/e-commerce/productOverview/productOverview3.html) 
 - [e-commerce/productOverview/productOverview4.html](/e-commerce/productOverview/productOverview4.html) 
 - [e-commerce/productsList/list1.html](/e-commerce/productsList/list1.html) 
+- [e-commerce/storefrontPages/page1.html](/e-commerce/storefrontPages/page1.html) 
 - [our-team/team1.html](/our-team/team1.html) 
 - [our-team/team2.html](/our-team/team2.html) 
 - [our-team/team3.html](/our-team/team3.html) 
