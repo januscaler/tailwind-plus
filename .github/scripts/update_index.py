@@ -30,6 +30,7 @@ def update_readme(markdown_files):
 # Main execution
 if __name__ == "__main__":
     markdown_files = get_markdown_files()
+    print(markdown_files)
     new_content = update_readme(markdown_files)
     
     # Check if README.md exists
