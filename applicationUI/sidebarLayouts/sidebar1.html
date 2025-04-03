@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Optional: Style for the subtle background pattern if needed */
+        .main-content-bg {
+             background-color: #f8fafc; /* Slightly off-white */
+             /* Approximation of the diagonal lines using linear gradient */
+             background-image: linear-gradient(135deg, #e2e8f0 8.33%, transparent 8.33%, transparent 50%, #e2e8f0 50%, #e2e8f0 58.33%, transparent 58.33%, transparent);
+             background-size: 21.21px 21.21px;
+        }
+        .main-content-bg-dark {
+             background-color: #374151; /* Gray-700 */
+              /* Darker version for the mobile/darker example */
+             background-image: linear-gradient(135deg, #4b5563 8.33%, transparent 8.33%, transparent 50%, #4b5563 50%, #4b5563 58.33%, transparent 58.33%, transparent);
+             background-size: 21.21px 21.21px;
+        }
+
+         /* Style for the scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2d3748; /* gray-800 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568; /* gray-600 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #718096; /* gray-500 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<div class="relative min-h-screen lg:flex">
+    <!-- Mobile menu button -->
+    <div class="lg:hidden flex justify-between items-center p-4 bg-gray-900 text-gray-400">
+        <!-- Mobile Logo Placeholder -->
+         <a href="#" class="text-white">
+             <svg class="h-8 w-auto" viewBox="0 0 128 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.039 3.447C42.5 1.33 45.566 0 49.375 0c6.666 0 11.399 2.668 14.196 8.003 2.798 5.336 2.4 12.334-.998 17.334-3.399 5-8.399 7.667-14.997 7.667-4.73 0-8.53-1.401-11.398-4.201l-6.999 3.534C24.607 35.003 19.34 36 14.142 36c-6.667 0-11.4-2.667-14.197-8-2.798-5.333-2.4-12.333.998-17.333C4.342 5.667 9.342 3 15.94 3c4.797 0 8.664 1.467 11.598 4.4l6.999-3.533A15.49 15.49 0 0 1 40.04 3.447zM28.144 18c0-3.4-.867-5.934-2.6-7.6-1.733-1.667-3.932-2.5-6.598-2.5s-4.866.833-6.598 2.5c-1.733 1.666-2.6 4.2-2.6 7.6s.867 5.933 2.6 7.6c1.732 1.667 3.932 2.5 6.598 2.5s4.865-.833 6.598-2.5c1.733-1.667 2.6-4.2 2.6-7.6zm27.793 0c0-3.4-.866-5.934-2.599-7.6-1.733-1.667-3.932-2.5-6.598-2.5s-4.866.833-6.598 2.5c-1.733 1.666-2.599 4.2-2.599 7.6s.866 5.933 2.599 7.6c1.732 1.667 3.932 2.5 6.598 2.5s4.865-.833 6.598-2.5c1.733-1.667 2.599-4.2 2.599-7.6zM119.67 15.815l-3.499-11.33H104.31l8.063 25.518h10.063l8.062-25.518h-11.86l-3.499 11.33zM90.804 30l-11.064-27h11.86L100.4 25.185 109.196 3h11.86L110.004 30H90.804zM70.573 30V3h11.662v27H70.573z" fill="#38BDF8"></path></svg>
+         </a>
+        <button id="mobile-menu-button" class="focus:outline-none focus:text-white">
+            <i class="fas fa-bars w-6 h-6"></i>
+            <!-- <i class="fas fa-times w-6 h-6 hidden"></i> --> <!-- Use JS to toggle between bars and times -->
+        </button>
+    </div>
+
+    <!-- Sidebar -->
+    <!-- Sidebar starts hidden on mobile, shown on lg+ -->
+    <div id="sidebar" class="bg-gray-900 text-gray-400 w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-20 flex flex-col justify-between min-h-screen">
+
+        <!-- Top Section: Logo, Nav, Teams -->
+        <div>
+            <!-- Logo -->
+            <a href="#" class="text-white flex items-center space-x-2 px-4 mb-10">
+                <!-- Placeholder Tailwind Logo SVG -->
+                <svg class="h-8 w-auto" viewBox="0 0 128 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40.039 3.447C42.5 1.33 45.566 0 49.375 0c6.666 0 11.399 2.668 14.196 8.003 2.798 5.336 2.4 12.334-.998 17.334-3.399 5-8.399 7.667-14.997 7.667-4.73 0-8.53-1.401-11.398-4.201l-6.999 3.534C24.607 35.003 19.34 36 14.142 36c-6.667 0-11.4-2.667-14.197-8-2.798-5.333-2.4-12.333.998-17.333C4.342 5.667 9.342 3 15.94 3c4.797 0 8.664 1.467 11.598 4.4l6.999-3.533A15.49 15.49 0 0 1 40.04 3.447zM28.144 18c0-3.4-.867-5.934-2.6-7.6-1.733-1.667-3.932-2.5-6.598-2.5s-4.866.833-6.598 2.5c-1.733 1.666-2.6 4.2-2.6 7.6s.867 5.933 2.6 7.6c1.732 1.667 3.932 2.5 6.598 2.5s4.865-.833 6.598-2.5c1.733-1.667 2.6-4.2 2.6-7.6zm27.793 0c0-3.4-.866-5.934-2.599-7.6-1.733-1.667-3.932-2.5-6.598-2.5s-4.866.833-6.598 2.5c-1.733 1.666-2.599 4.2-2.599 7.6s.866 5.933 2.599 7.6c1.732 1.667 3.932 2.5 6.598 2.5s4.865-.833 6.598-2.5c1.733-1.667 2.599-4.2 2.599-7.6zM119.67 15.815l-3.499-11.33H104.31l8.063 25.518h10.063l8.062-25.518h-11.86l-3.499 11.33zM90.804 30l-11.064-27h11.86L100.4 25.185 109.196 3h11.86L110.004 30H90.804zM70.573 30V3h11.662v27H70.573z" fill="#38BDF8"></path></svg>
+                 <!-- <span class="text-xl font-bold">Brand</span> --> <!-- Alt text logo -->
+            </a>
+
+            <!-- Primary Nav -->
+            <nav>
+                <a href="#" class="bg-gray-800 text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md">
+                    <i class="fas fa-home mr-3 text-lg text-gray-400 group-hover:text-gray-300"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="hover:bg-gray-700 hover:text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md mt-1">
+                    <i class="fas fa-users mr-3 text-lg text-gray-500 group-hover:text-gray-400"></i>
+                    Team
+                </a>
+                <a href="#" class="hover:bg-gray-700 hover:text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md mt-1">
+                    <i class="fas fa-folder mr-3 text-lg text-gray-500 group-hover:text-gray-400"></i>
+                    Projects
+                </a>
+                <a href="#" class="hover:bg-gray-700 hover:text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md mt-1">
+                    <i class="fas fa-calendar-alt mr-3 text-lg text-gray-500 group-hover:text-gray-400"></i>
+                    Calendar
+                </a>
+                <a href="#" class="hover:bg-gray-700 hover:text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md mt-1">
+                    <i class="fas fa-file-alt mr-3 text-lg text-gray-500 group-hover:text-gray-400"></i>
+                    Documents
+                </a>
+                <a href="#" class="hover:bg-gray-700 hover:text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md mt-1">
+                    <i class="fas fa-chart-bar mr-3 text-lg text-gray-500 group-hover:text-gray-400"></i>
+                    Reports
+                </a>
+            </nav>
+
+            <!-- Teams Section -->
+            <div class="mt-10 px-4">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Your teams</h3>
+                <div class="mt-4 space-y-4">
+                    <a href="#" class="group flex items-center text-sm font-medium text-gray-400 hover:text-white">
+                        <span class="w-6 h-6 mr-3 bg-gray-700 rounded-full flex items-center justify-center text-xs font-medium text-gray-300 group-hover:bg-gray-600">H</span>
+                        <span>Heroicons</span>
+                    </a>
+                    <a href="#" class="group flex items-center text-sm font-medium text-gray-400 hover:text-white">
+                        <span class="w-6 h-6 mr-3 bg-gray-700 rounded-full flex items-center justify-center text-xs font-medium text-gray-300 group-hover:bg-gray-600">T</span>
+                        <span>Tailwind Labs</span>
+                    </a>
+                     <a href="#" class="group flex items-center text-sm font-medium text-gray-400 hover:text-white">
+                        <span class="w-6 h-6 mr-3 bg-gray-700 rounded-full flex items-center justify-center text-xs font-medium text-gray-300 group-hover:bg-gray-600">W</span>
+                        <span>Workcation</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Settings -->
+        <div>
+             <a href="#" class="hover:bg-gray-700 hover:text-white group flex items-center px-4 py-2.5 text-sm font-medium rounded-md">
+                <i class="fas fa-cog mr-3 text-lg text-gray-500 group-hover:text-gray-400"></i>
+                Settings
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Top bar -->
+        <!-- Hidden on mobile, shown on lg+ -->
+        <header class="hidden lg:flex justify-between items-center py-4 px-6 bg-white border-b border-gray-200">
+            <div class="flex items-center">
+                <!-- Search Bar -->
+                 <form action="#">
+                    <div class="relative text-gray-400 focus-within:text-gray-600">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </span>
+                        <input type="search" name="q" class="py-2 text-sm text-gray-900 bg-gray-100 rounded-md pl-10 pr-4 focus:outline-none focus:bg-white focus:ring-1 focus:ring-indigo-500" placeholder="Search..." autocomplete="off">
+                    </div>
+                </form>
+            </div>
+
+            <div class="flex items-center space-x-5">
+                <!-- Notification Bell -->
+                <button class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <i class="fas fa-bell fa-lg"></i>
+                </button>
+
+                <!-- User Profile Dropdown -->
+                <div class="relative">
+                    <button class="flex items-center text-sm focus:outline-none">
+                        <img class="w-8 h-8 rounded-full object-cover mr-2" src="https://picsum.photos/seed/user1/40/40" alt="User Avatar">
+                        <span class="hidden md:inline-block text-gray-700 font-medium">Tom Cook</span>
+                        <i class="fas fa-chevron-down ml-2 text-gray-500 text-xs"></i>
+                    </button>
+                    <!-- Dropdown menu, hidden by default -->
+                    <!-- <div class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10 hidden">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Profile</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>
+                    </div> -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Only Header (alternative simple version if needed) -->
+        <!-- <header class="lg:hidden flex justify-between items-center p-4 bg-white border-b border-gray-200">
+            <button id="mobile-menu-button-alt" class="text-gray-600 focus:outline-none">
+                <i class="fas fa-bars w-6 h-6"></i>
+            </button>
+            <span class="text-xl font-semibold text-gray-700">Dashboard</span>
+            <button class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                 <i class="fas fa-bell"></i>
+            </button>
+        </header> -->
+
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto main-content-bg p-6">
+            <!-- Placeholder for content -->
+            <div class="bg-white p-8 rounded-lg shadow-md min-h-[calc(100vh-150px)]"> <!-- Adjust min-h as needed -->
+                 <h1 class="text-2xl font-semibold text-gray-800 mb-6">Dashboard Content</h1>
+                 <p class="text-gray-600">Your main content goes here. This is a placeholder area.</p>
+                 <!-- Example Content -->
+                 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                         <h3 class="text-lg font-medium text-gray-700">Card 1</h3>
+                         <p class="text-sm text-gray-500 mt-2">Some quick example text.</p>
+                     </div>
+                      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                         <h3 class="text-lg font-medium text-gray-700">Card 2</h3>
+                         <p class="text-sm text-gray-500 mt-2">Some quick example text.</p>
+                     </div>
+                      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                         <h3 class="text-lg font-medium text-gray-700">Card 3</h3>
+                         <p class="text-sm text-gray-500 mt-2">Some quick example text.</p>
+                     </div>
+                 </div>
+            </div>
+
+             <!-- The image example with grey background and dotted border -->
+             <!-- <div class="border-2 border-dashed border-gray-400 rounded-lg min-h-[calc(100vh-150px)] flex items-center justify-center">
+                <span class="text-gray-500">Content Area</span>
+             </div> -->
+
+        </main>
+    </div>
+</div>
+
+<!-- Basic JS to toggle sidebar (for demonstration) -->
+<script>
+    const btn = document.getElementById('mobile-menu-button');
+    // const btnAlt = document.getElementById('mobile-menu-button-alt'); // If using the alt mobile header
+    const sidebar = document.getElementById('sidebar');
+    // const menuIcon = btn.querySelector('.fa-bars');
+    // const closeIcon = btn.querySelector('.fa-times');
+
+    const toggleSidebar = () => {
+        sidebar.classList.toggle('-translate-x-full');
+        // menuIcon.classList.toggle('hidden');
+        // closeIcon.classList.toggle('hidden');
+    };
+
+    btn.addEventListener('click', toggleSidebar);
+    // if (btnAlt) btnAlt.addEventListener('click', toggleSidebar); // If using the alt mobile header
+
+    // Optional: Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (event) => {
+        const isClickInsideSidebar = sidebar.contains(event.target);
+        const isClickOnButton = btn.contains(event.target);
+        // const isClickOnAltButton = btnAlt ? btnAlt.contains(event.target) : false;
+
+        if (!isClickInsideSidebar && !isClickOnButton /* && !isClickOnAltButton */ && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
+            toggleSidebar();
+        }
+    });
+</script>
+
+</body>
+</html>
